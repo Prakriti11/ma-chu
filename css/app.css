@@ -1,0 +1,148 @@
+body {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  font-family: "Open sans", serif; }
+  body.with-image {
+    background-image: linear-gradient(rgba(20, 63, 191, 0.44), rgba(20, 63, 191, 0.44)), url(../img/croped.jpg);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center; }
+
+.wrapper {
+  height: 100%;
+  width: 100%;
+  display: none; }
+
+.overlay {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0px;
+  background: rgba(20, 63, 191, 0.44);
+  z-index: 8; }
+
+.main-header {
+  position: relative;
+  max-height: 50px;
+  overflow: hidden;
+  border-bottom: 1px solid #ccc; }
+
+.login-box, .main-box {
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  z-index: 9999;
+  position: absolute;
+  overflow: hidden; }
+
+.login-box .panel-body, .main-box .panel-body {
+  background: transparent;
+  z-index: 9999; }
+
+.login-box .image-wrapper, .main-box .image-wrapper {
+  margin-top: 20%;
+  margin-bottom: 15%;
+  height: 50%; }
+
+.login-box .form-wrapper, .main-box .form-wrapper {
+  padding: 15px; }
+  .login-box .form-wrapper .input-box, .main-box .form-wrapper .input-box {
+    margin-bottom: 8%; }
+    .login-box .form-wrapper .input-box .form-control, .main-box .form-wrapper .input-box .form-control {
+      -webkit-border-radius: 50px;
+      -moz-border-radius: 50px;
+      -ms-border-radius: 50px;
+      border-radius: 50px;
+      height: 50px;
+      font-size: 16px;
+      font-family: "Montserrat", -apple-system, Helvetica Neue, Roboto, Segoe UI, sans-serif;
+      padding-left: 45px;
+      background: #fafafa; }
+      .login-box .form-wrapper .input-box .form-control.btn, .main-box .form-wrapper .input-box .form-control.btn {
+        padding-left: 12px;
+        background: #00d7b5;
+        border-color: #00a48a; }
+    .login-box .form-wrapper .input-box:nth-last-child(-n + 1), .main-box .form-wrapper .input-box:nth-last-child(-n + 1) {
+      margin-bottom: 10px; }
+    .login-box .form-wrapper .input-box .form-control-feedback, .main-box .form-wrapper .input-box .form-control-feedback {
+      line-height: 50px;
+      height: 50px;
+      vertical-align: middle;
+      font-size: 20px;
+      left: 10px;
+      color: rgba(16, 16, 16, 0.59); }
+  .login-box .form-wrapper .footer-wrapper, .main-box .form-wrapper .footer-wrapper {
+    height: 50px; }
+    .login-box .form-wrapper .footer-wrapper span.link, .main-box .form-wrapper .footer-wrapper span.link {
+      line-height: 50px;
+      vertical-align: bottom;
+      color: #999999;
+      font-family: "Montserrat", -apple-system, Helvetica Neue, Roboto, Segoe UI, sans-serif;
+      font-size: 16px; }
+
+.login-box.panel-default, .panel-default.main-box {
+  background: transparent;
+  border-radius: 0px;
+  border: 0px;
+  margin-bottom: 0px; }
+
+.with-image .login-box .footer-wrapper span.link, .with-image .main-box .footer-wrapper span.link {
+  color: #fff; }
+
+.signup-wrapper {
+  height: 100%;
+  width: 100%;
+  padding-top: 10%;
+  overflow: hidden !important;
+  font-family: "Montserrat", -apple-system, Helvetica Neue, Roboto, Segoe UI, sans-serif; }
+  .signup-wrapper .panel-heading {
+    margin-bottom: 30px; }
+    .signup-wrapper .panel-heading .title {
+      font-size: 50px;
+      font-family: inherit;
+      margin-top: 20px;
+      margin-bottom: 20px; }
+    .signup-wrapper .panel-heading p {
+      margin-top: 35px;
+      margin-bottom: 0px; }
+  .signup-wrapper .panel-body {
+    padding: 20px 30px; }
+    .signup-wrapper .panel-body ul {
+      list-style: none;
+      -webkit-padding-start: 0px;
+      vertical-align: bottom; }
+      .signup-wrapper .panel-body ul .link {
+        height: 65px;
+        border: 1px solid #ccc;
+        -webkit-border-radius: 6px;
+        -moz-border-radius: 6px;
+        -ms-border-radius: 6px;
+        border-radius: 6px;
+        background: #fafafa;
+        cursor: pointer;
+        margin-bottom: 25px;
+        box-shadow: 1px 2px rgba(0, 0, 0, 0.32); }
+        .signup-wrapper .panel-body ul .link > a {
+          display: flex;
+          padding: 10px 20px;
+          color: #ccc; }
+  .signup-wrapper.panel {
+    margin-bottom: 0px; }
+  .signup-wrapper .icon-container {
+    line-height: 35px;
+    vertical-align: baseline;
+    font-size: 35px;
+    color: rgba(0, 0, 0, 0.64); }
+
+.main-box {
+  height: calc(100% + 50px); }
+  .main-box .top {
+    height: 25%;
+    background: #00d7b5; }
+  .main-box .middle {
+    height: 50%;
+    background: #999999; }
+  .main-box .bottom {
+    height: 25%; }

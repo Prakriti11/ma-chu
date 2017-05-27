@@ -1,0 +1,257 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="shortcut icon" type="image/x-icon" href="https://production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico">
+    <link rel="mask-icon" type="" href="https://production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg"
+        color="#111">
+    <title>Ma Chu</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet" type="text/css">
+
+
+
+
+    <style>
+        body {
+            background: #5E2E91;
+            font-family: Roboto;
+            margin: 0px;
+        }
+
+        .app {
+            height: 500px;
+            width: 281px;
+            margin: auto;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            overflow: hidden;
+            box-shadow: 0 1.5px 4px rgba(0, 0, 0, 0.24), 0 1.5px 6px rgba(0, 0, 0, 0.12);
+        }
+
+        .content {
+            background: #5E2E91 url("https://cbwconline.com/IMG/Codepen/Mountains.svg") center 20% no-repeat;
+            background-size: 75px;
+            height: 100%;
+            width: 100%;
+            transition: .3s .2s;
+        }
+
+        .content.background {
+            background: #5E2E91 url("https://cbwconline.com/IMG/Codepen/Mountains.svg") center 15% no-repeat;
+            background-size: 75px;
+        }
+
+        .button {
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.23), 0 3px 12px rgba(0, 0, 0, 0.16);
+            background: #F9F9F9;
+            background-position: 0 200px;
+            height: 56px;
+            width: 120px;
+            margin: auto;
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 75%;
+            border-radius: 28px;
+            transition: width .3s, border-radius .3s, height .3s .1s, top .3s .1s, background .0s .6s;
+        }
+
+        .button.expanded {
+            height: 800px;
+            width: 90%;
+            border-radius: 5px;
+            top: 35%;
+        }
+
+        .button.full {
+            height: 100%;
+            width: 100%;
+            top: 0;
+            border-radius: 0;
+            background: #F9F9F9 url("https://cbwconline.com/IMG/Codepen/Background.svg") no-repeat;
+            background-size: 100%;
+            background-position: 0 0;
+            transition: .5s;
+        }
+
+        form {
+            width: 100%;
+            margin: auto;
+            height: 100%;
+            position: relative;
+            text-align: center;
+            transition: .3s .6s;
+        }
+
+        form.hidden {
+            visibility: hidden;
+            opacity: 0;
+            pointer-events: none;
+            transition: .01s;
+        }
+
+        input {
+            display: inline-block;
+            background: #F9F9F9;
+            width: 90%;
+            margin: 15px auto;
+            border: 0;
+            border-bottom: 1px solid lightgrey;
+            padding: 12px 0;
+            outline: 0;
+            font-size: 15px;
+        }
+
+        .sign-up {
+            width: 100%;
+            height: 22px;
+            padding: 20px 0;
+            margin: auto;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            color: #5E2E91;
+            font: 500 20px Roboto;
+            text-align: center;
+            cursor: pointer;
+            transition: .5s;
+        }
+
+        .sign-up.hidden {
+            visibility: hidden;
+            opacity: 0;
+        }
+
+        button {
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.23), 0 3px 12px rgba(0, 0, 0, 0.16);
+            background: #14FFB5;
+            height: 56px;
+            width: 120px;
+            padding: 0;
+            margin: auto;
+            border: none;
+            border-radius: 28px;
+            outline: none;
+            overflow: hidden;
+            position: absolute;
+            bottom: -20px;
+            left: 0;
+            right: 0;
+            color: #F9F9F9;
+            font: 500 20px Roboto;
+            cursor: pointer;
+            transition: .3s .7s, background .1s .3s;
+        }
+
+        button.hidden {
+            width: 0;
+        }
+
+        button.fab {
+            background: #14FFB5 url("https://cbwconline.com/IMG/Codepen/Add.svg") center center no-repeat;
+            width: 56px;
+            height: 56px;
+            margin: 0;
+            top: auto;
+            bottom: 10px;
+            left: auto;
+            right: 10px;
+            transition: .3s;
+        }
+
+        .header {
+            background: #5E2E91 url("https://cbwconline.com/IMG/Codepen/Menu.svg") 8% 50% no-repeat;
+            width: 100%;
+            height: 56px;
+            position: absolute;
+            top: 0;
+            z-index: 5;
+            transition: .5s .3s;
+        }
+
+        .header.hidden {
+            top: -100%;
+        }
+
+
+
+        
+    </style>
+
+    <script>
+        window.console = window.console || function (t) {};
+    </script>
+
+
+
+    <script>
+        if (document.location.search.match(/type=embed/gi)) {
+            window.parent.postMessage("resize", "*");
+        }
+    </script>
+
+</head>
+
+<body translate="no">
+
+
+
+    <div class="content">
+        <div class="button">
+            <div class="sign-up">SIGN UP</div>
+            <form id="signup" action="#" method="POST" class="hidden form">
+                <input type="text" placeholder="Username" name="name" id="name">
+                <input type="text" name="email" id="email" placeholder="Email Id">
+                <input type="password" name="password" id="password" placeholder="Password">
+                <input type="text" name="address" id="address" placeholder="Address">
+                <input type="text" name="phone" id="phone" placeholder="Phone No.">
+                <input type="number" name="shyness" id="shyness" max="100" min="1" placeholder="Shyness (1 to 100)">
+                <input type="number" name="introvert" id="introvert" max="100" min="1" placeholder="Introvert(1 to 100)">
+                <input type="number" name="age" id="age" placeholder="Age">
+                <input type="text" name="gender" id="gender" placeholder="Gender">
+                <input type='text' id="bio" name="bio" placeholder="Describe yourself">
+                <input type="text" id="role" name="role" placeholder="Guide or Tourist">
+
+                <button type="submit" id="signup_button" class="hidden"><span class="text">DONE</span></button>
+            </form>
+            
+        </div>
+    </div>
+
+    <script src="https://production-assets.codepen.io/assets/common/stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="../public/js/custom.js"></script>
+
+    <script>
+
+        $(".sign-up").on('click', function () {
+            $(".button").addClass("expanded");
+            $(".sign-up").addClass("hidden");
+            $(".content").addClass("background");
+            $("button").removeClass("hidden");
+            $("form").toggleClass("hidden");
+        })
+
+        // $("button").on('click', function () {
+        //     $(this).addClass("fab");
+        //     $("form").addClass("hidden");
+        //     $(".button").addClass("full");
+        //     $(".text").remove();
+        //     $(".header").removeClass("hidden");
+        // })
+      
+    </script>
+
+
+
+
+
+
+</body>
+
+</html>
